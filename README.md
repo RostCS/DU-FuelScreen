@@ -15,4 +15,4 @@ How to Install and Configure the Script
    -  Once you have linked the items, check the configuration down below, and edit the names and colors accordingly  
    -  Note: Space Tank 1 is the first you linked, Atmo Tank 1 is the first you linked  
    -  Once everything has been linked and configured, get into the pilots seat, and wait for the fuel bars on the bottom right to load, then exit  
-   -  You can now activate the programming board, and the ship should work as intended  
+   -  You can now activate the programming board, and the script should work as intended  
