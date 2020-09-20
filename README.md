@@ -5,7 +5,11 @@ Things to note about this script
  -  If you require a different setup and are unsure of how to do that, message me on discord Rost#6764, and I'll modify it when I have the chance.
  -  All Colors and Text can be customized down below in Script Configuration, you can either use Hex Codes, or the names of colors  
 
-How to Install this Script  
+How to Get the Script
+ -  Open the file above this, 2x4, click Raw, and copy all of the data there
+ -  Place down an unconfigured programming board, right click->Advanced->Paste Lua Configuration from Clipboard
+
+How to Install and Configure the Script 
    -  This install assumes all you have done is placed down an unconfigured programming board, and copied the provided script into it  
    -  Link the following items to the board in this order: Screen, Space Tank, Space Tank, Atmo Tank, Atmo Tank  
    -  Once you have linked the items, check the configuration down below, and edit the names and colors accordingly  
