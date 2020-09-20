@@ -16,3 +16,6 @@ How to Install and Configure the Script
    -  Note: Space Tank 1 is the first you linked, Atmo Tank 1 is the first you linked  
    -  Once everything has been linked and configured, get into the pilots seat, and wait for the fuel bars on the bottom right to load, then exit  
    -  You can now activate the programming board, and the script should work as intended  
+
+Known Issues:
+-  The Script Errors and has to be reactivated whenever you walk more than 250m from your ship
