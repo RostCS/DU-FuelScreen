@@ -19,3 +19,4 @@ How to Install and Configure the Script
 
 Known Issues:
 -  The Script Errors and has to be reactivated whenever you walk more than 250m from your ship
+-  -    This is the result of a Dual Universe bug, there's no way to fix it with just a lua script, but you can link say, a button that controls your door, or an area sensor to reactivate the script
