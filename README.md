@@ -15,7 +15,7 @@ Right click on a programming board, Advanced, Paste Lua Configuration from clipb
 
 From there use the link tool(build mode tool 6 by default), to connect a minimum of one screen and one tank, before activating the programming board.
 
-**Note: Due to the way dual universe handles the unloading of elements, when you get more than 250m from the programming board, the script will error, and will not be able to work correctly, until the programming board is deactivated and reactivated. However, this can easily be avoided by connecting creating a link from a detection zone to the programming board. This will cause the board to be turned off whenever the player as out of range, and turned on whenever in range, solving the problem.**
+**Note: Due to the way dual universe handles the unloading of elements, when you get more than 250m from the programming board, the script will error and will not be able to work correctly until the programming board is deactivated and reactivated. However, this can easily be avoided by connecting creating a link from a detection zone to the programming board. This will cause the board to be turned off whenever the player as out of range, and turned on whenever in range, solving the problem.**
 
 ## Planned Features
 
