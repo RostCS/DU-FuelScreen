@@ -9,7 +9,7 @@ Easy configuration of all colors and text
 
 ## Installation
 
-(Tutorial Video coming Soon)
+[Installation Tutorial / Feature Showcase](https://youtu.be/woB6tSPFkqw)
 
 Click on FuelManagement1.2 above, on the top right click the Raw Button, and copy all text(Ctrl+C)
 
