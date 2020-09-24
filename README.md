@@ -19,6 +19,7 @@ From there use the link tool(build mode tool 6 by default), to connect a minimum
 
 ## Planned Features
 
+ - Support for any combination of 8 tanks, for non-hybrid quest
  - Rocket Tank Support
  - Support to display the percentage filled as a text value on top of the bar
  - Support to display the size of the tank on the bar
