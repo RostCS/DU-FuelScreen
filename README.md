@@ -1,22 +1,44 @@
-# DU-4TankFuelScreen
+![display of multiple fuel tank configurations](https://rostw.com/i/glz4o.gif)
+## Features
 
-Things to note about this script  
- -  I designed this script specifically for ships with 2 space tanks, and 2 atmo tanks.  
- -  If you require a different setup and are unsure of how to do that, message me on discord Rost#6764, and I'll modify it when I have the chance.
- -  All Colors and Text can be customized down below in Script Configuration, you can either use Hex Codes, or the names of colors  
+Supports any configuration of tanks, up to 4 Atmospheric and 4 Space, for a total of 8 tanks.
 
-How to Get the Script
- -  Open the file above this, 2x4, click Raw, and copy all of the data there
- -  Place down an unconfigured programming board, right click->Advanced->Paste Lua Configuration from Clipboard
+Automatic detection, simply connect any amount of screens, and the tanks, and it will automatically adjust to the configuration
 
-How to Install and Configure the Script 
-   -  This install assumes all you have done is placed down an unconfigured programming board, and copied the provided script into it  
-   -  Link the following items to the board in this order: Screen, Space Tank, Space Tank, Atmo Tank, Atmo Tank  
-   -  Once you have linked the items, check the configuration down below, and edit the names and colors accordingly  
-   -  Note: Space Tank 1 is the first you linked, Atmo Tank 1 is the first you linked  
-   -  Once everything has been linked and configured, get into the pilots seat, and wait for the fuel bars on the bottom right to load, then exit  
-   -  You can now activate the programming board, and the script should work as intended  
+Easy configuration of all colors and text
 
-Known Issues:
--  The Script Errors and has to be reactivated whenever you walk more than 250m from your ship
--  -    This is the result of a Dual Universe bug, there's no way to fix it with just a lua script, but you can link say, a button that controls your door, or an area sensor to reactivate the script
+## Installation
+
+Click on FuelManagement1.2 above, on the top right click the Raw Button, and copy all text(Ctrl+C)
+
+Right click on a programming board, Advanced, Paste Lua Configuration from clipboard
+
+From there use the link tool(build mode tool 6 by default), to connect a minimum of one screen and one tank, before activating the programming board.
+
+**Note: Due to the way dual universe handles the unloading of elements, when you get more than 250m from the programming board, the script will error, and will not be able to work correctly, until the programming board is deactivated and reactivated. However, this can easily be avoided by connecting creating a link from a detection zone to the programming board. This will cause the board to be turned off whenever the player as out of range, and turned on whenever in range, solving the problem.**
+
+## Planned Features
+
+ - Rocket Tank Support
+ - Displaying the Percentage as a text value on top of the bar
+ - Displaying the size of the tank on the bar
+ - Further customization options
+ - Support to split the list across more than one screen, rather than mirroring
+
+## Customization
+
+The script can be customized within the Advanced -> Edit Lua Paramaters menu, though due to the length of the strings, this can look and feel clunky.
+
+For easier to read configuration, Go to Advanced -> Edit Lua Script, click unit under slots, and start() under filters. This will display a section of the code, where the variables can more easily be read.
+
+## Support
+
+Any issues or suggestions? You can contact me at either of these locations:
+
+Discord: Rost#6764
+Ingame: RostNerd
+
+## Credits
+
+Thanks to the great folks in the #lua-scripting channel in the Dual Universe discord, for providing me assistance in figuring out the more difficult sections of this script. Notably: Lithum3, D.Mentia, and NoPantsMcDance
+
