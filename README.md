@@ -35,8 +35,8 @@ For easier to read configuration, Go to Advanced -> Edit Lua Script, click unit 
 
 Any issues or suggestions? You can contact me at either of these locations:
 
-Discord: Rost#6764
-Ingame: RostNerd
+- Discord: Rost#6764
+- Ingame: RostNerd
 
 ## Credits
 
