@@ -9,6 +9,8 @@ Easy configuration of all colors and text
 
 ## Installation
 
+(Tutorial Video coming Soon)
+
 Click on FuelManagement1.2 above, on the top right click the Raw Button, and copy all text(Ctrl+C)
 
 Right click on a programming board, Advanced, Paste Lua Configuration from clipboard
