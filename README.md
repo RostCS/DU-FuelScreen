@@ -31,6 +31,12 @@ The script can be customized within the Advanced -> Edit Lua Paramaters menu, th
 
 For an easier to read configuration, Go to Advanced -> Edit Lua Script, click unit under slots, and start() under filters. This will display a section of the code where the variables can more easily be read.
 
+## Troubleshooting
+
+ - Restart your game
+ - Verify that the names of the tanks does not contain symbols, as this can conflict with the lua code
+ 
+
 ## Support
 
 Any issues or suggestions? You can contact me at either of these locations:
