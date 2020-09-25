@@ -49,10 +49,16 @@ Any issues or suggestions? You can contact me at either of these locations:
 
 ## Changelog
 
-**v1.3**
+**v1.3** - 9/25/2020
 - Features: Added Support for any configuration of 8 tanks, rather than a limit of 4 atmospheric, and 4 space tanks
 - Backend: Reworked the way the tankName Array's are generated
 - Backend: Added comments to some portions of the code
+
+**v1.2** - 9/22/2020
+- Initial Public Release
+- Added autoconfiguration based on the class of the link, rather than requiring the connected slot to be named
+
+**v1.1** - 9/20/2020
 
 ## Credits
 
