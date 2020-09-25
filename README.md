@@ -47,6 +47,13 @@ Any issues or suggestions? You can contact me at either of these locations:
 - Discord: Rost#6764
 - Ingame: RostNerd
 
+## Changelog
+
+**v1.3**
+- Features: Added Support for any configuration of 8 tanks, rather than a limit of 4 atmospheric, and 4 space tanks
+- Backend: Reworked the way the tankName Array's are generated
+- Backend: Added comments to some portions of the code
+
 ## Credits
 
 Thanks to the great folks in the #lua-scripting channel in the Dual Universe discord, for assisting me in figuring out the more difficult sections of this script. Notably: Lithum3, D.Mentia, and NoPantsMcDance
