@@ -1,0 +1,164 @@
+--Script Information----------------------------------------------------------------------------------------------------------------------
+--Version: 1.3
+--Supports: 
+     --Any amount of atmo or space tanks, to a total of 8
+     --Rocket Tanks coming soon(have to get one or two to test)
+--Created by: Rost
+--For Support:
+     --Discord: Rost#6764
+     --Ingame: RostNerd
+
+--Script Configuration--------------------------------------------------------------------------------------------------------------------
+
+--Debug Mode(prints extra values to help with troubleshooting)
+debug = false
+
+--Update Speed(rate at which the screen updates in seconds
+updateSpeed = 1 --export
+
+--Header Text
+windowName = "Fuel Management" --export
+
+spaceTankNames = {}
+--Name of Space Tank 1
+spaceTankNames[1] = "Space Tank 1" --export
+
+--Name of Space Tank 2
+spaceTankNames[2] = "Space Tank 2" --export
+
+--Name of Space Tank 3
+spaceTankNames[3] = "Space Tank 3" --export
+
+--Name of Space Tank 4
+spaceTankNames[4] = "Space Tank 4" --export
+
+--Name of Space Tank 5
+spaceTankNames[5] = "Space Tank 5" --export
+
+--Name of Space Tank 6
+spaceTankNames[6] = "Space Tank 6" --export
+
+--Name of Space Tank 7
+spaceTankNames[7] = "Space Tank 7" --export
+
+--Name of Space Tank 8
+spaceTankNames[8] = "Space Tank 8" --export
+
+atmoTankNames = {}
+--Name of Atmo Tank 1
+atmoTankNames[1] = "Atmospheric Tank 1" --export
+
+--Name of Atmo Tank 2
+atmoTankNames[2] = "Atmospheric Tank 2" --export
+
+--Name of Atmo Tank 3
+atmoTankNames[3] = "Atmospheric Tank 3" --export
+
+--Name of Atmo Tank 4
+atmoTankNames[4] = "Atmospheric Tank 4" --export
+
+--Name of Atmo Tank 5
+atmoTankNames[5] = "Atmospheric Tank 5" --export
+
+--Name of Atmo Tank 6
+atmoTankNames[6] = "Atmospheric Tank 6" --export
+
+--Name of Atmo Tank 7
+atmoTankNames[7] = "Atmospheric Tank 7" --export
+
+--Name of Atmo Tank 8
+atmoTankNames[8] = "Atmospheric Tank 8" --export
+
+--Background Color
+backgroundColor = "#2f343d" --export
+
+--Bar Border Color
+borderColor = "white" --export
+
+--Header Text Color
+headerColor = "white" --export
+
+--Space Text Color
+spaceNameColor = "orange" --export
+
+--Space Bar Color
+spaceBarColor = "orange" --export
+
+--Atmo Text Color
+atmoTextColor = "#34b1eb" --export
+
+--Atmo Bar Color
+atmoBarColor = "#34b1eb" --export
+
+--Script Configuration Done--Modifications beyond here are at your own risk--
+------------------------------------------------------------------------------------------------------------------    
+function insertionSort(array)-- Basic insertion sort algorithm used to sort the spaceTanks and atmoTanks arrays
+    local len = #array
+    local j
+    for j = 2, len do
+        local key = array[j]
+        local i = j - 1 --The line below sorts the array using the name field of the tank for consistent results
+        while i > 0 and json.decode(array[i].getData()).name > json.decode(key.getData()).name do
+            array[i + 1] = array[i]
+            i = i - 1
+        end
+        array[i + 1] = key
+    end
+    return array
+end
+
+atmoTanks = {}
+
+for key, value in pairs(unit) do
+  if type(value) == "table" and type(value.export) == "table" then -- `value` is an element and `key` is the slot name
+    if value.getElementClass then --if it has a class
+      if value.getElementClass() == "AtmoFuelContainer" then --if it's an atmo tank
+          atmoTanks[#atmoTanks + 1] = value
+      end
+    end
+  end
+end 
+
+
+atmoTanks = insertionSort(atmoTanks)
+--We're required to sort the atmoTanks array, as the code that gets it is not consistent, and
+--due to some unknown value, the order of the tanks is randomized.
+--by sorting the array by the name of the tank, we can verify a consistent order every time
+
+spaceTanks = {}
+for key, value in pairs(unit) do
+  if type(value) == "table" and type(value.export) == "table" then -- `value` is an element and `key` is the slot name
+    if value.getElementClass then --if it has a class
+      if value.getElementClass() == "SpaceFuelContainer" then --if it's a space tank
+           spaceTanks[#spaceTanks + 1] = value 
+      end
+    end
+  end
+end 
+
+spaceTanks = insertionSort(spaceTanks)
+--We're required to sort the spaceTanks array, as the code that gets it is not consistent, and
+--due to some unknown value, the order of the tanks is randomized.
+--by sorting the array by the name of the tank, we can verify a consistent order every time
+
+screens = {}
+
+for key, value in pairs(unit) do
+  if type(value) == "table" and type(value.export) == "table" then -- `value` is an element and `key` is the slot name
+    if value.getElementClass then -- if it has a class
+      if value.getElementClass() == "ScreenUnit" then --if it's a screen
+           screens[#screens + 1] = value
+      end
+    end
+  end
+end 
+
+if debug then
+    system.print('Number of Screens: '..#screens)
+    system.print('Number of Space Tanks: '..#spaceTanks)
+    system.print('Number of Atmospheric Tanks: '..#atmoTanks)
+end
+
+
+
+unit.setTimer('updateFuelDisplay',updateSpeed)
