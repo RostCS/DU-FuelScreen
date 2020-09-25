@@ -1,7 +1,7 @@
 ![display of multiple fuel tank configurations](https://rostw.com/i/glz4o.gif)
 ## Features
 
-Supports any configuration of tanks, up to 4 Atmospheric and 4 Space, for a total of 8 tanks.
+Supports any configuration of atmospheric and space tanks, up to 8 total tanks
 
 Automatic detection, simply connect any amount of screens, and the tanks, and it will automatically adjust to the configuration
 
@@ -11,7 +11,7 @@ Easy configuration of all colors and text
 
 [Installation Tutorial / Feature Showcase](https://youtu.be/woB6tSPFkqw)
 
-Click on FuelManagement1.2 above, on the top right click the Raw Button, and copy all text(Ctrl+C)
+Click on FuelManagement1.3 above, on the top right click the Raw Button, and copy all text(Ctrl+C)
 
 Right click on a programming board, Advanced, Paste Lua Configuration from clipboard
 
@@ -21,7 +21,7 @@ From there use the link tool(build mode tool 6 by default), to connect a minimum
 
 ## Planned Features
 
- - Support for any combination of 8 tanks, for non-hybrid ships
+ - ~~Support for any combination of 8 tanks, for non-hybrid ships~~ Added in 1.3
  - Rocket Tank Support
  - Support to display the percentage filled as a text value on top of the bar
  - Support to display the size of the tank on the bar
