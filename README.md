@@ -40,6 +40,10 @@ For an easier to read configuration, Go to Advanced -> Edit Lua Script, click un
  - Verify that the names of the tanks does not contain symbols, as this can conflict with the lua code
  
 
+## Use on Payed Constructs
+
+The script is free to use on payed and personal ships, however I would appreciate to be notified if it's being used on a sold construct/blueprint, as well as a link to this github provided to the buyer, so buyers can update their script at a later date.
+
 ## Support
 
 Any issues or suggestions? You can contact me at either of these locations:
