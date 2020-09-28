@@ -2,7 +2,7 @@
 --Edit code in this section at your own risk
 
 function update()
-    barAndTextHeight = (1120-120)/(#spaceTanks + #atmoTanks)
+    barAndTextHeight = (1120-120)/(#spaceTanks + #atmoTanks + #rocketTanks)
     spaceSVG=[[]]
     numBars=0
     spaceFuelPercents = {}
@@ -22,6 +22,16 @@ function update()
 					    <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..atmoFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..atmoBarColor..[[" stroke-width="0"/>]]
         numBars = numBars+1
     end
+    
+    rocketSVG=[[]]
+    rocketFuelPercents = {}
+    for i=1,#rocketTanks,1 do
+        rocketFuelPercents[i] = 1890*((json.decode(rocketTanks[i].getData()).percentage)/100)
+        rocketSVG = rocketSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..rocketTextColor..[[">]]..rocketTankNames[i]..[[</text>
+					    <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" stroke="]]..borderColor..[[" stroke-width="5"/>
+					    <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..rocketFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..rocketBarColor..[[" stroke-width="0"/>]]
+        numBars = numBars+1
+    end
 
 
     
@@ -36,6 +46,8 @@ function update()
 	]]..spaceSVG..[[
 
 	]]..atmoSVG..[[
+    
+     ]]..rocketSVG..[[
 
 	</svg></svg>]]
 
