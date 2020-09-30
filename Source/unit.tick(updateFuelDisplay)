@@ -1,60 +1,95 @@
 --Configuration for this script can be found in the start() function in the menu to your left
 --Edit code in this section at your own risk
 
-function update()
-    barAndTextHeight = (1120-120)/(#spaceTanks + #atmoTanks + #rocketTanks)
-    spaceSVG=[[]]
-    numBars=0
+function getSpaceSVG()
     spaceFuelPercents = {}
+    local returnSVG=[[]]
     for i=1,#spaceTanks,1 do
         spaceFuelPercents[i] = 1890*((json.decode(spaceTanks[i].getData()).percentage)/100)
-        spaceSVG = spaceSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..spaceNameColor..[[">]]..spaceTankNames[i]..[[</text>
+        returnSVG = returnSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..spaceNameColor..[[">]]..spaceTankNames[i]..[[</text>
 		                     <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" stroke="]]..borderColor..[[" stroke-width="5"/>
 		                     <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..spaceFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..spaceBarColor..[[" stroke-width="0"/>]]
         numBars = numBars+1
     end
-    atmoSVG=[[]]
-    atmoFuelPercents = {}
+    return returnSVG
+end
+
+function getAtmoSVG()
+    local atmoFuelPercents = {}
+    local returnSVG=[[]]
     for i=1,#atmoTanks,1 do
         atmoFuelPercents[i] = 1890*((json.decode(atmoTanks[i].getData()).percentage)/100)
-        atmoSVG = atmoSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..atmoTextColor..[[">]]..atmoTankNames[i]..[[</text>
-					    <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" stroke="]]..borderColor..[[" stroke-width="5"/>
-					    <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..atmoFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..atmoBarColor..[[" stroke-width="0"/>]]
+        returnSVG = returnSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..atmoTextColor..[[">]]..atmoTankNames[i]..[[</text>
+					        <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" stroke="]]..borderColor..[[" stroke-width="5"/>
+					        <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..atmoFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..atmoBarColor..[[" stroke-width="0"/>]]
         numBars = numBars+1
     end
-    
-    rocketSVG=[[]]
-    rocketFuelPercents = {}
+    return returnSVG
+end
+
+function getRocketSVG()
+    local returnSVG = [[]]
+    local rocketFuelPercents = {}
     for i=1,#rocketTanks,1 do
         rocketFuelPercents[i] = 1890*((json.decode(rocketTanks[i].getData()).percentage)/100)
-        rocketSVG = rocketSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..rocketTextColor..[[">]]..rocketTankNames[i]..[[</text>
-					    <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" stroke="]]..borderColor..[[" stroke-width="5"/>
-					    <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..rocketFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..rocketBarColor..[[" stroke-width="0"/>]]
+        returnSVG = returnSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..rocketTextColor..[[">]]..rocketTankNames[i]..[[</text>
+					        <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" stroke="]]..borderColor..[[" stroke-width="5"/>
+					        <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..rocketFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..rocketBarColor..[[" stroke-width="0"/>]]
         numBars = numBars+1
     end
+    return returnSVG
+end
 
-
+function getBarSVG()
+	--1 - Space,Atmo,Rocket
+	--2 - Space,Rocket,Atmo
+	--3 - Atmo,Space,Rocket
+	--4 - Atmo,Rocket,Space
+	--5 - Rocket,Space,Atmo
+	--6 - Rocket,Atmo,Space
+    if tankOrder == 2 then
+        return getSpaceSVG()..getRocketSVG()..getAtmoSVG()
+    elseif tankOrder == 3 then
+        return getAtmoSVG()..getSpaceSVG()..getRocketSVG()
+    elseif tankOrder == 4 then
+        return getAtmoSVG()..getRocketSVG()..getSpaceSVG()
+    elseif tankOrder == 5 then
+        return getRocketSVG()..getSpaceSVG()..getAtmoSVG()
+    elseif tankOrder == 6 then
+        return getRocketSVG()..getAtmoSVG()..getSpaceSVG()
+    else
+        return getSpaceSVG()..getAtmoSVG()..getRocketSVG()
+    end
+end
     
-    svg = [[<svg class="bootstrap" viewBox="0 0 1920 1120" style="width:100%; height:100%"><svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg">
+function update()
+    if playerToggle then
+        playerDistance = vec3(unit.getMasterPlayerRelativePosition()):len()
+    else
+        playerDistance = 0
+    end
+    
+    if(playerDistance < 200) then
+        barAndTextHeight = (1120-120)/(#spaceTanks + #atmoTanks + #rocketTanks)
+        numBars=0
+        bars = getBarSVG()
+
+        svg = [[<svg class="bootstrap" viewBox="0 0 1920 1120" style="width:100%; height:100%"><svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg">
   
-	<rect width="100%" height="100%" fill="]]..backgroundColor..[[" />
+	           <rect width="100%" height="100%" fill="]]..backgroundColor..[[" />
 
- 	<text x="15" y="55" font-size="60" text-anchor='start' fill="]]..headerColor..[[">]]..windowName..[[</text>
+ 	           <text x="15" y="55" font-size="60" text-anchor='start' fill="]]..headerColor..[[">]]..windowName..[[</text>
     
- 	<line x1="0" x2="1920" y1="75" y2="75" stroke="]]..borderColor..[[", fill="]]..borderColor..[["/>
+ 	           <line x1="0" x2="1920" y1="75" y2="75" stroke="]]..borderColor..[[", fill="]]..borderColor..[["/>
 	
-	]]..spaceSVG..[[
+                ]]..bars..[[
 
-	]]..atmoSVG..[[
-    
-     ]]..rocketSVG..[[
+	           </svg></svg>]]
 
-	</svg></svg>]]
-
-	for i=1,#screens,1 do
-     	screens[i].setSVG(svg)
-	end
-    
+	   for i=1,#screens,1 do
+     	   screens[i].setSVG(svg)
+	   end
+    end
 end
 
 update()
