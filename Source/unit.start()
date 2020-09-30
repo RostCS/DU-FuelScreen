@@ -1,5 +1,5 @@
 --Script Information----------------------------------------------------------------------------------------------------------------------
---Version: 1.4
+--Version: 1.4.5
 --Created by: Rost
 --For Support:
      --Discord: Rost#6764
@@ -10,6 +10,23 @@
 
 --Debug Mode(prints extra values to help with troubleshooting)
 debug = false
+
+--Tank Type Order
+--1 - Space,Atmo,Rocket
+--2 - Space,Rocket,Atmo
+--3 - Atmo,Space,Rocket
+--4 - Atmo,Rocket,Space
+--5 - Rocket,Space,Atmo
+--6 - Rocket,Atmo,Space
+tankOrder = 1
+
+--Player Distance controlled updates
+--If the player that activated the script walks out of range of the programming board, the script will disable
+--If you are using a detection zone to control the PB, this setting should be disabled
+playerToggle = true --export: Disable if using a detection zone
+
+--Hides the widget in the bottom right
+hideWidget = true
 
 --Update Speed(rate at which the screen updates in seconds
 updateSpeed = 1 
@@ -207,6 +224,11 @@ if debug then
     system.print('Number of Rocket Tanks: '..#rocketTanks)
 end
 
+if hideWidget then
+    unit.hide()
+else
+    unit.show()
+end
 
 
 unit.setTimer('updateFuelDisplay',updateSpeed)

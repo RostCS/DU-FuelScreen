@@ -11,13 +11,15 @@ Easy configuration of all colors and text
 
 [Installation Tutorial / Feature Showcase](https://youtu.be/woB6tSPFkqw)
 
-Click on FuelManagement1.4 above, on the top right click the Raw Button, and copy all text(Ctrl+C)
+Click on FuelManagement1.4.5 above, on the top right click the Raw Button, and copy all text(Ctrl+C)
 
 Right click on a programming board, Advanced, Paste Lua Configuration from clipboard
 
 From there use the link tool(build mode tool 6 by default), to connect a minimum of one screen and one tank, before activating the programming board.
 
-**Note: Due to the way dual universe handles the unloading of elements, when you get more than 250m from the programming board, the script will error and will not be able to work correctly until the programming board is deactivated and reactivated. However, this can easily be avoided by creating a link from a detection zone to the programming board. This will cause the board to be turned off whenever the player as out of range, and turned on whenever in range, solving the problem.**
+**There are 2 ways to use this script:**
+- 1. **Single User Mode: This is enabled by default, and means that the script will not update when the player that activates the board is not within range of the ships**
+- 2. **Multi User Mode: This is enabled by creating a link from a zone detector, to the programming board(blue link), as well as disabling the playerToggle setting in lua paramaters or the unit.start() configuration. This disables single user mode, and will update the screen whenever any player is within range of the detection zone.**
 
 ## Planned Features
 
@@ -33,6 +35,8 @@ From there use the link tool(build mode tool 6 by default), to connect a minimum
 ~~The script can be customized within the Advanced -> Edit Lua Paramaters menu, though due to the length of the strings, this can both look and feel clunky.~~ | Temporarily disabled
 
 For an easier to read configuration, Go to Advanced -> Edit Lua Script, click unit under slots, and start() under filters. This will display a section of the code where the variables can more easily be read.
+
+To adjust the order of the tanks within their groups, you will need to rename the tanks. The tanks are sorted in alphabeticical order. To rename the tanks, use build mode, and right click -> rename element on the tank.
 
 ## Troubleshooting
 
@@ -53,6 +57,13 @@ Any issues or suggestions? You can contact me at either of these locations:
 - Ingame: RostNerd
 
 ## Changelog
+
+**v1.4.5** - 9/30/2020
+
+- Features: Added the ability to adjust the order of the types of tanks through a configuration setting
+- Features: Added Single and Multiuser Mode
+- Features: Added the ability to disable the programming board widget(disabled by default)
+- Backend: Reworked the array the graphics SVG is generated
 
 **v1.4** - 9/28/2020
 
