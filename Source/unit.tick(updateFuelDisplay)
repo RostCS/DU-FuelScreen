@@ -1,46 +1,80 @@
 --Configuration for this script can be found in the start() function in the menu to your left
 --Edit code in this section at your own risk
 
-function getSpaceSVG()
-    spaceFuelPercents = {}
+
+local function getSpaceSVG()
+    local spaceFuelPercents = {}
     local returnSVG=[[]]
+    local percent = [[]]
     for i=1,#spaceTanks,1 do
         spaceFuelPercents[i] = 1890*((json.decode(spaceTanks[i].getData()).percentage)/100)
+        if showPercents then
+            if spaceFuelPercents[i]>200 then
+            	percent = [[<text x="]]..(spaceFuelPercents[i]-145)..[["y="]]..135+((.43)*barAndTextHeight)+(numBars*barAndTextHeight)..[[" font-size="60" text-anchor="start" fill="]]..spacePercentColor..[[">]]..json.decode(spaceTanks[i].getData()).percentage..[[%</text>]]
+            else
+                 percent = [[<text x="]]..(spaceFuelPercents[i]+25)..[["y="]]..135+((.43)*barAndTextHeight)+(numBars*barAndTextHeight)..[[" font-size="60" text-anchor="start" fill="]]..spacePercentColor..[[">]]..json.decode(spaceTanks[i].getData()).percentage..[[%</text>]]
+            end
+        else
+            percent = [[]]
+        end
         returnSVG = returnSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..spaceNameColor..[[">]]..spaceTankNames[i]..[[</text>
-		                     <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" stroke="]]..borderColor..[[" stroke-width="5"/>
-		                     <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..spaceFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..spaceBarColor..[[" stroke-width="0"/>]]
+		                     <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..spaceFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..spaceBarColor..[[" stroke-width="0"/>
+        				  <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" fill-opacity="0" stroke="]]..borderColor..[[" stroke-width="5"/>
+        				  ]]..percent..[[]]
         numBars = numBars+1
     end
     return returnSVG
 end
 
-function getAtmoSVG()
+local function getAtmoSVG()
     local atmoFuelPercents = {}
     local returnSVG=[[]]
+    local percent = [[]]
     for i=1,#atmoTanks,1 do
         atmoFuelPercents[i] = 1890*((json.decode(atmoTanks[i].getData()).percentage)/100)
+        if showPercents then
+            if atmoFuelPercents[i] > 200 then
+            	percent = [[<text x="]]..(atmoFuelPercents[i]-145)..[["y="]]..135+((.43)*barAndTextHeight)+(numBars*barAndTextHeight)..[[" font-size="60" text-anchor="start" fill="]]..atmoPercentColor..[[">]]..json.decode(atmoTanks[i].getData()).percentage..[[%</text>]]
+            else
+                 percent = [[<text x="]]..(atmoFuelPercents[i]+25)..[["y="]]..135+((.43)*barAndTextHeight)+(numBars*barAndTextHeight)..[[" font-size="60" text-anchor="start" fill="]]..atmoPercentColor..[[">]]..json.decode(atmoTanks[i].getData()).percentage..[[%</text>]]
+            end
+        else
+            percent = [[]]
+        end
         returnSVG = returnSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..atmoTextColor..[[">]]..atmoTankNames[i]..[[</text>
-					        <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" stroke="]]..borderColor..[[" stroke-width="5"/>
-					        <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..atmoFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..atmoBarColor..[[" stroke-width="0"/>]]
+					       <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..atmoFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..atmoBarColor..[[" stroke-width="0"/>
+        				    <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" fill-opacity="0" stroke="]]..borderColor..[[" stroke-width="5"/>
+        				  ]]..percent..[[]]
         numBars = numBars+1
     end
     return returnSVG
 end
 
-function getRocketSVG()
+local function getRocketSVG()
     local returnSVG = [[]]
     local rocketFuelPercents = {}
+    local percent = [[]]
     for i=1,#rocketTanks,1 do
         rocketFuelPercents[i] = 1890*((json.decode(rocketTanks[i].getData()).percentage)/100)
+        if showPercents then
+            if rocketFuelPercents[i]>200 then
+            	percent = [[<text x="]]..(rocketFuelPercents[i]-145)..[["y="]]..135+((.43)*barAndTextHeight)+(numBars*barAndTextHeight)..[[" font-size="60" text-anchor="start" fill="]]..rocketPercentColor..[[">]]..json.decode(rocketTanks[i].getData()).percentage..[[%</text>]]
+            else
+                 percent = [[<text x="]]..(rocketFuelPercents[i]+25)..[["y="]]..135+((.43)*barAndTextHeight)+(numBars*barAndTextHeight)..[[" font-size="60" text-anchor="start" fill="]]..rocketPercentColor..[[">]]..json.decode(rocketTanks[i].getData()).percentage..[[%</text>]]
+            end
+        else
+            percent = [[]]
+        end
         returnSVG = returnSVG..[[<text x="15" y="]]..120+(numBars * barAndTextHeight)..[[" font-size="40" text-anchor="start" fill="]]..rocketTextColor..[[">]]..rocketTankNames[i]..[[</text>
-					        <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" stroke="]]..borderColor..[[" stroke-width="5"/>
-					        <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..rocketFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..rocketBarColor..[[" stroke-width="0"/>]]
+					       <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="]]..rocketFuelPercents[i]..[[" height="]]..(barAndTextHeight-60)..[[" fill="]]..rocketBarColor..[[" stroke-width="0"/>
+        				    <rect x="15" y="]]..135+(numBars * barAndTextHeight)..[[" width="1890" height="]]..(barAndTextHeight-60)..[[" fill="]]..backgroundColor..[[" fill-opacity="0" stroke="]]..borderColor..[[" stroke-width="5"/>
+        				  ]]..percent..[[]]
         numBars = numBars+1
     end
     return returnSVG
 end
 
-function getBarSVG()
+local function getBarSVG()
 	--1 - Space,Atmo,Rocket
 	--2 - Space,Rocket,Atmo
 	--3 - Atmo,Space,Rocket
@@ -62,7 +96,7 @@ function getBarSVG()
     end
 end
     
-function update()
+local function update()
     if playerToggle then
         playerDistance = vec3(unit.getMasterPlayerRelativePosition()):len()
     else

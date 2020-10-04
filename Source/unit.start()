@@ -1,5 +1,5 @@
 --Script Information----------------------------------------------------------------------------------------------------------------------
---Version: 1.4.5
+--Version: 1.5
 --Created by: Rost
 --For Support:
      --Discord: Rost#6764
@@ -8,10 +8,10 @@
 
 --Script Configuration--------------------------------------------------------------------------------------------------------------------
 
---Debug Mode(prints extra values to help with troubleshooting)
+--Debug Mode(prints extra values to help with troubleshooting) -- Default: false
 debug = false
 
---Tank Type Order
+--Tank Type Order -- Default: 1
 --1 - Space,Atmo,Rocket
 --2 - Space,Rocket,Atmo
 --3 - Atmo,Space,Rocket
@@ -20,16 +20,19 @@ debug = false
 --6 - Rocket,Atmo,Space
 tankOrder = 1
 
---Player Distance controlled updates
+--Player Distance controlled updates -- Default: false
 --If the player that activated the script walks out of range of the programming board, the script will disable
 --If you are using a detection zone to control the PB, this setting should be disabled
-playerToggle = true --export: Disable if using a detection zone
+playerToggle = false --export: Enable if not using a detection zone
 
---Hides the widget in the bottom right
+--Hides the widget in the bottom right -- Default: true
 hideWidget = true
 
---Update Speed(rate at which the screen updates in seconds
+--Update Speed(rate at which the screen updates in seconds -- Default: 1
 updateSpeed = 1 
+
+--Show the Percent Filled next to the bar -- Default: true
+showPercents = true
 
 --Header Text
 windowName = "Fuel Management" 
@@ -57,7 +60,10 @@ spaceTankNames[6] = "Space Tank 6"
 spaceTankNames[7] = "Space Tank 7" 
 
 --Name of Space Tank 8
-spaceTankNames[8] = "Space Tank 8" 
+spaceTankNames[8] = "Space Tank 8"
+
+--Name of Space Tank 9
+spaceTankNames[9] = "Space Tank 9"
 
 atmoTankNames = {}
 --Name of Atmo Tank 1
@@ -84,6 +90,9 @@ atmoTankNames[7] = "Atmospheric Tank 7"
 --Name of Atmo Tank 8
 atmoTankNames[8] = "Atmospheric Tank 8" 
 
+--Name of Atmo Tank 9
+atmoTankNames[9] = "Atmospheric Tank 9"
+
 rocketTankNames = {}
 --Name of Rocket Tank 1
 rocketTankNames[1] = "Rocket Tank 1" 
@@ -107,34 +116,46 @@ rocketTankNames[6] = "Rocket Tank 6"
 rocketTankNames[7] = "Rocket Tank 7" 
 
 --Name of Rocket Tank 8
-rocketTankNames[8] = "Rocket Tank 8" 
+rocketTankNames[8] = "Rocket Tank 8"
 
---Background Color
+--Name of Rocket Tank 9
+rocketTankNames[9] = "Rocket Tank 9"
+
+--Background Color -- Default: #2f343d
 backgroundColor = "#2f343d" 
 
---Bar Border Color
+--Bar Border Color -- Default: white
 borderColor = "white" 
 
---Header Text Color
+--Header Text Color -- Default: white
 headerColor = "white" 
 
---Space Text Color
+--Space Text Color -- Default: orange
 spaceNameColor = "orange" 
 
---Space Bar Color
+--Space Bar Color -- Default: orange
 spaceBarColor = "orange" 
 
---Atmo Text Color
+--Space Percent Color -- Default: white
+spacePercentColor = "white"
+
+--Atmo Text Color -- Default: 34b1eb
 atmoTextColor = "#34b1eb" 
 
---Atmo Bar Color
+--Atmo Bar Color -- Default: 34b1eb
 atmoBarColor = "#34b1eb" 
 
---Rocket Text Color
+--Atmo Percent Color -- Default: white
+atmoPercentColor = "white"
+
+--Rocket Text Color -- Default: 6e3de3
 rocketTextColor = "#6e3de3"
 
---Rocket Bar Color
+--Rocket Bar Color -- Default: 6e3de3
 rocketBarColor = "#6e3de3" 
+
+--Rocket Percent Color -- Default: white
+rocketPercentColor = "white"
 
 --Script Configuration Done--Modifications beyond here are at your own risk--
 ------------------------------------------------------------------------------------------------------------------    
