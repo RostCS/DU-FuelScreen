@@ -1,7 +1,7 @@
 ![display of multiple fuel tank configurations](https://rostw.com/i/urmwr.gif)
 ## Features
 
-Supports any configuration of atmospheric, rocket, and space tanks up to 8 total tanks
+Supports any configuration of atmospheric, rocket, and space tanks up to 9 total tanks
 
 Automatic detection, simply connect any amount of screens, and the tanks, and it will automatically adjust to the configuration
 
@@ -11,21 +11,19 @@ Easy configuration of all colors and text
 
 [Installation Tutorial / Feature Showcase](https://youtu.be/woB6tSPFkqw)
 
-Click on FuelManagement1.4.5 above, on the top right click the Raw Button, and copy all text(Ctrl+C)
+Click on FuelManagement1.5 above, on the top right click the Raw Button, and copy all text(Ctrl+C)
 
 Right click on a programming board, Advanced, Paste Lua Configuration from clipboard
 
 From there use the link tool(build mode tool 6 by default), to connect a minimum of one screen and one tank, before activating the programming board.
 
-**There are 2 ways to use this script:**
-- 1. **Single User Mode: This is enabled by default, and means that the script will not update when the player that activates the board is not within range of the ships**
-- 2. **Multi User Mode: This is enabled by creating a link from a zone detector, to the programming board(blue link), as well as disabling the playerToggle setting in lua paramaters or the unit.start() configuration. This disables single user mode, and will update the screen whenever any player is within range of the detection zone.**
+**It is highly recommended to use a detection zone with this script. Simply create a link from the detection zone, to the programming board(blue link). This will allow the script to turn back on whenever a player walks within range. If you are not using a detection zone, enable playerToggle in the configuration**
 
 ## Planned Features
 
  - ~~Support for any combination of 8 tanks, for non-hybrid ships~~ | Added in 1.3
  - ~~Rocket Tank Support~~ | Added in 1.4
- - Support to display the percentage filled as a text value on top of the bar
+ - ~~Support to display the percentage filled as a text value on top of the bar~~ | Added in 1.5
  - Support to display the size of the tank on the bar
  - Further customization options
  - Support to split the list across more than one screen, rather than mirroring
@@ -42,7 +40,7 @@ To adjust the order of the tanks within their groups, you will need to rename th
 
  - Restart your game
  - Verify that the names of the tanks does not contain symbols, as this can conflict with the lua code
- - Verify that you are not attempting to link more than 8 of a single tank to the programming board
+ - Verify that you are not attempting to link more than 9 tanks to the programming board
  
 
 ## Use on Payed Constructs
@@ -57,6 +55,16 @@ Any issues or suggestions? You can contact me at either of these locations:
 - Ingame: RostNerd
 
 ## Changelog
+
+**v1.5** - 10/3/2020
+
+- Features: Added the ability to show the percentage of fuel remaining on the bar.(Enabled by default, disable in the config)
+- Features: Added Support for 9 tanks of the same type(was 8)
+- Bugfix: Fixed an issue where the colored bar was rendering on top of the border
+- Configuration: Added showPercents to toggle on and off the display of percentages
+- Configuration: Added text showing the default value of all numerical configuration settings
+- Backend: Adjusted the order that the progress bars are rendered
+- Backend: Localized all internal functions and arrays in the update tick
 
 **v1.4.5** - 9/30/2020
 
