@@ -24,9 +24,8 @@ From there use the link tool(build mode tool 6 by default), to connect a minimum
  - ~~Support for any combination of 8 tanks, for non-hybrid ships~~ | Added in 1.3
  - ~~Rocket Tank Support~~ | Added in 1.4
  - ~~Support to display the percentage filled as a text value on top of the bar~~ | Added in 1.5
- - Support to display the size of the tank on the bar
- - Further customization options
- - Support to split the list across more than one screen, rather than mirroring
+
+**More features will come eventually, however finding time to play dual and work on this script has become much more scarce. For feature requests please make an issue, and add the enhancement label. Whenever I get around to finding time to code, I'll go with the most popular request, or just come up with something if there is no requests at a given time.**
 
 ## Customization
 
