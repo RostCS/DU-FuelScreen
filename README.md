@@ -50,6 +50,11 @@ Any issues or suggestions? You can contact me at either of these locations:
 
 ## Changelog
 
+**v1.6** - 2/3/2021
+
+- Features: Changed tank naming by element name. Right-click the tank while in build mode, click "Rename Element" and name your tank. It will appear on the screen properly.
+- Cleanup: Made the code much smaller and cleaner. 
+
 **v1.5** - 10/3/2020
 
 - Features: Added the ability to show the percentage of fuel remaining on the bar.(Enabled by default, disable in the config)

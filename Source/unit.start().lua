@@ -1,5 +1,5 @@
 --Script Information----------------------------------------------------------------------------------------------------------------------
---Version: 1.5
+--Version: 1.6
 --Created by: Rost
 --For Support:
      --Discord: Rost#6764
@@ -29,97 +29,17 @@ playerToggle = false --export: Enable if not using a detection zone
 hideWidget = true
 
 --Update Speed(rate at which the screen updates in seconds -- Default: 1
-updateSpeed = 1 
+updateSpeed = 1
+
+--
+--Look and feel section. Update below to change the colors and the look of the display.
+--
 
 --Show the Percent Filled next to the bar -- Default: true
 showPercents = true
 
 --Header Text
 windowName = "Fuel Management" 
-
-spaceTankNames = {}
---Name of Space Tank 1
-spaceTankNames[1] = "Space Tank 1" 
-
---Name of Space Tank 2
-spaceTankNames[2] = "Space Tank 2" 
-
---Name of Space Tank 3
-spaceTankNames[3] = "Space Tank 3" 
-
---Name of Space Tank 4
-spaceTankNames[4] = "Space Tank 4" 
-
---Name of Space Tank 5
-spaceTankNames[5] = "Space Tank 5" 
-
---Name of Space Tank 6
-spaceTankNames[6] = "Space Tank 6" 
-
---Name of Space Tank 7
-spaceTankNames[7] = "Space Tank 7" 
-
---Name of Space Tank 8
-spaceTankNames[8] = "Space Tank 8"
-
---Name of Space Tank 9
-spaceTankNames[9] = "Space Tank 9"
-
-atmoTankNames = {}
---Name of Atmo Tank 1
-atmoTankNames[1] = "Atmospheric Tank 1" 
-
---Name of Atmo Tank 2
-atmoTankNames[2] = "Atmospheric Tank 2" 
-
---Name of Atmo Tank 3
-atmoTankNames[3] = "Atmospheric Tank 3" 
-
---Name of Atmo Tank 4
-atmoTankNames[4] = "Atmospheric Tank 4" 
-
---Name of Atmo Tank 5
-atmoTankNames[5] = "Atmospheric Tank 5" 
-
---Name of Atmo Tank 6
-atmoTankNames[6] = "Atmospheric Tank 6" 
-
---Name of Atmo Tank 7
-atmoTankNames[7] = "Atmospheric Tank 7" 
-
---Name of Atmo Tank 8
-atmoTankNames[8] = "Atmospheric Tank 8" 
-
---Name of Atmo Tank 9
-atmoTankNames[9] = "Atmospheric Tank 9"
-
-rocketTankNames = {}
---Name of Rocket Tank 1
-rocketTankNames[1] = "Rocket Tank 1" 
-
---Name of Rocket Tank 2
-rocketTankNames[2] = "Rocket Tank 2" 
-
---Name of Rocket Tank 3
-rocketTankNames[3] = "Rocket Tank 3" 
-
---Name of Rocket Tank 4
-rocketTankNames[4] = "Rocket Tank 4" 
-
---Name of Rocket Tank 5
-rocketTankNames[5] = "Rocket Tank 5" 
-
---Name of Rocket Tank 6
-rocketTankNames[6] = "Rocket Tank 6" 
-
---Name of Rocket Tank 7
-rocketTankNames[7] = "Rocket Tank 7" 
-
---Name of Rocket Tank 8
-rocketTankNames[8] = "Rocket Tank 8"
-
---Name of Rocket Tank 9
-rocketTankNames[9] = "Rocket Tank 9"
 
 --Background Color -- Default: #2f343d
 backgroundColor = "#2f343d" 
@@ -140,7 +60,7 @@ spaceBarColor = "orange"
 spacePercentColor = "white"
 
 --Atmo Text Color -- Default: 34b1eb
-atmoTextColor = "#34b1eb" 
+atmoNameColor = "#34b1eb" 
 
 --Atmo Bar Color -- Default: 34b1eb
 atmoBarColor = "#34b1eb" 
@@ -149,7 +69,7 @@ atmoBarColor = "#34b1eb"
 atmoPercentColor = "white"
 
 --Rocket Text Color -- Default: 6e3de3
-rocketTextColor = "#6e3de3"
+rocketNameColor = "#6e3de3"
 
 --Rocket Bar Color -- Default: 6e3de3
 rocketBarColor = "#6e3de3" 
