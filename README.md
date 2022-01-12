@@ -1,3 +1,5 @@
+## This script is no longer being updated, and may not work as intended. Use at your own risk
+
 ![display of multiple fuel tank configurations](https://rostw.com/i/urmwr.gif)
 ## Features
 
